@@ -1,0 +1,3 @@
+rootProject.name = 'uiLib'
+
+include ':app'
