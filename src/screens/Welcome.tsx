@@ -5,6 +5,7 @@ import { Colors, View, Text } from "react-native-ui-lib/src";
 
 interface InterfaceProps {
   navigation?: any;
+  second: number;
 }
 
 interface InterfaceState {}
@@ -15,7 +16,7 @@ interface InterfaceStyle {
   powered: ViewStyle;
 }
 
-export default class Splash extends React.Component<InterfaceProps, InterfaceState> {
+export default class Welcome extends React.Component<InterfaceProps, InterfaceState> {
   constructor(props) {
     super(props);
   }
@@ -23,13 +24,16 @@ export default class Splash extends React.Component<InterfaceProps, InterfaceSta
   public render() {
     return (
       <View flex center style={styles.container}>
-        <Text text30 style={styles.title}>
-          UILib
+        <Text text20 marginB-20>
+          {this.props.second}
+        </Text>
+        <Text text40 style={styles.title}>
+          Welcome to UILib
         </Text>
         <Text text70 marginT-10 style={styles.title}>
           Base on react-native-ui-lib
         </Text>
-        <Text text70 style={styles.powered}>
+        <Text text70 marginB-60 style={styles.powered}>
           Powered by React Native
         </Text>
       </View>
@@ -42,10 +46,10 @@ const styles = StyleSheet.create<InterfaceStyle>({
     flex: 1,
   },
   title: {
-    fontWeight:  "500",
+    fontWeight: "500",
   },
   powered: {
     position: "absolute",
     bottom: 30,
-  }
+  },
 });

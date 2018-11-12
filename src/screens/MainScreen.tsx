@@ -55,14 +55,14 @@ export default class UiLibExplorerMenu extends React.Component<InterfaceProps, I
   };
 
   private filterExplorerScreens = (filterText) => {
-    let filteredNavigationData = {};
+    let filteredNavigationData: any[] = [];
     const { navigationData } = store;
 
     if (!filterText) {
       filteredNavigationData = navigationData;
     } else {
-      _.each(navigationData, (menuSection, menuSectionKey) => {
-        const filteredMenuSection = _.filter(menuSection, (menuItem) => {
+      _.each(navigationData, (menuSection) => {
+        const filteredMenuSectionData = _.filter(menuSection.data, (menuItem) => {
           // @ts-ignore
           const { title, description, tags } = menuItem;
 
@@ -73,13 +73,19 @@ export default class UiLibExplorerMenu extends React.Component<InterfaceProps, I
           );
         });
 
-        if (!_.isEmpty(filteredMenuSection)) {
-          filteredNavigationData[menuSectionKey] = filteredMenuSection;
+        if (!_.isEmpty(filteredMenuSectionData)) {
+          const filteredMenuSection = _.cloneDeep(menuSection);
+
+          filteredMenuSection.data = filteredMenuSectionData;
+
+          filteredNavigationData.push(filteredMenuSection);
         }
       });
     }
+
     this.setState({
       filterText,
+      sections: filteredNavigationData,
     });
   };
 
