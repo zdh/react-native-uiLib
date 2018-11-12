@@ -1,7 +1,7 @@
 import * as _ from "lodash";
 import * as React from "react";
 
-import { ListView, StyleSheet, ListViewDataSource, TextStyle, ViewStyle } from "react-native";
+import { StyleSheet, SectionList, TextStyle, ViewStyle } from "react-native";
 
 import {
   Colors,
@@ -12,12 +12,7 @@ import {
   TouchableOpacity,
 } from "react-native-ui-lib/src";
 
-import { InterfaceItem, store } from "./MainStore";
-
-const ds = new ListView.DataSource({
-  rowHasChanged: (r1, r2) => r1 !== r2,
-  sectionHeaderHasChanged: (s1, s2) => s1 !== s2,
-});
+import { store, InterfaceItem } from "./MainStore";
 
 interface InterfaceProps {
   children?: JSX.Element;
@@ -25,7 +20,7 @@ interface InterfaceProps {
 }
 
 interface InterfaceState {
-  dataSource: ListViewDataSource;
+  sections: any[];
   filterText?: string;
 }
 
@@ -42,7 +37,7 @@ export default class UiLibExplorerMenu extends React.Component<InterfaceProps, I
   constructor(props) {
     super(props);
     this.state = {
-      dataSource: ds.cloneWithRowsAndSections(store.navigationData),
+      sections: store.navigationData,
     };
   }
 
@@ -85,14 +80,13 @@ export default class UiLibExplorerMenu extends React.Component<InterfaceProps, I
     }
     this.setState({
       filterText,
-      dataSource: ds.cloneWithRowsAndSections(filteredNavigationData),
     });
   };
 
-  private renderSectionHeader = (sectionData, sectionID) => {
+  private renderSectionHeader = ({ section }) => {
     return (
       <View style={styles.sectionContainer}>
-        <Text style={styles.sectionText}>{sectionID}</Text>
+        <Text style={styles.sectionText}>{section.title}</Text>
       </View>
     );
   };
@@ -101,14 +95,19 @@ export default class UiLibExplorerMenu extends React.Component<InterfaceProps, I
     return <View style={styles.separator} key={`s${sId}_${id}`} />;
   };
 
-  private renderRow = (row, index) => {
+  private renderItem = ({ item, index }) => {
     return (
       <TouchableOpacity
         key={index}
-        style={{ justifyContent: "center", paddingVertical: 20, paddingHorizontal: 25 }}
-        onPress={() => this.openScreen(row)}
+        style={{
+          justifyContent: "center",
+          paddingVertical: 20,
+          paddingHorizontal: 25,
+          backgroundColor: Colors.white,
+        }}
+        onPress={() => this.openScreen(item)}
       >
-        <Text text70>{row.title}</Text>
+        <Text text70>{item.title}</Text>
       </TouchableOpacity>
     );
   };
@@ -127,11 +126,12 @@ export default class UiLibExplorerMenu extends React.Component<InterfaceProps, I
             autoCorrect={false}
           />
         </View>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
-          renderSeparator={this.renderSeparator}
+        <SectionList
+          sections={this.state.sections}
+          renderItem={this.renderItem}
+          ItemSeparatorComponent={this.renderSeparator}
           renderSectionHeader={this.renderSectionHeader}
+          keyExtractor={(item, index) => `${item.title}-${index}`}
         />
       </View>
     );
