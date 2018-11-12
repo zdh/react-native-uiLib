@@ -37,6 +37,13 @@ export default class FeatureHighlightScreen extends React.Component<
 > {
   targets;
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
 

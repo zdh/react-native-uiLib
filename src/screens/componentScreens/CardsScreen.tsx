@@ -24,6 +24,13 @@ interface InterfaceStyle {
 export default class CardsScreen extends React.Component<InterfaceProps, InterfaceState> {
   store: CardScannerStore = new CardScannerStore();
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
   }

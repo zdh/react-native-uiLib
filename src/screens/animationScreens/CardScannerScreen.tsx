@@ -27,6 +27,13 @@ interface InterfaceStyle {
 export default class CardScannerScreen extends React.Component<InterfaceProps, InterfaceState> {
   store: CardScannerStore = new CardScannerStore();
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
 
@@ -125,12 +132,11 @@ export default class CardScannerScreen extends React.Component<InterfaceProps, I
             />
           </Card>
 
-          {this.state.started &&
-            !this.state.isDone && (
-              <Text text70 dark10 style={{ alignSelf: "center", marginTop: 20 }}>
-                Publishing Post...
-              </Text>
-            )}
+          {this.state.started && !this.state.isDone && (
+            <Text text70 dark10 style={{ alignSelf: "center", marginTop: 20 }}>
+              Publishing Post...
+            </Text>
+          )}
 
           {this.state.isDone && (
             <Text text70 dark10 style={{ alignSelf: "center", marginTop: 20 }}>

@@ -26,6 +26,13 @@ interface InterfaceStyle {
 }
 
 export default class ModalScreen extends React.Component<InterfaceProps, InterfaceState> {
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
     this.state = {

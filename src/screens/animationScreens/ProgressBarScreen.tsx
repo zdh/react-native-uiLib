@@ -13,6 +13,13 @@ interface InterfaceState {
 export default class ProgressBarScreen extends React.Component<InterfaceProps, InterfaceState> {
   elements: any[] = new Array(4);
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
     this.state = {

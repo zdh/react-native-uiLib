@@ -22,6 +22,13 @@ interface InterfaceState {
 export default class RadioButtonScreen extends React.Component<InterfaceProps, InterfaceState> {
   static id = "example.Playground";
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
     this.state = {

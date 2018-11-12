@@ -19,6 +19,13 @@ interface InterfaceStyle {
 class AppleMusic extends React.Component<InterfaceProps, InterfaceState> {
   store: AppleStore = new AppleStore();
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
   }

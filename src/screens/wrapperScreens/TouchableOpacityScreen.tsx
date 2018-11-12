@@ -15,6 +15,13 @@ export default class TouchableOpacityScreen extends React.Component<
 > {
   private example?: any;
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
     this.state = {

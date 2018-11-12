@@ -20,6 +20,13 @@ interface InterfaceStyle {
 export default class MaskedInputScreen extends React.Component<InterfaceProps, InterfaceState> {
   minput;
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
 

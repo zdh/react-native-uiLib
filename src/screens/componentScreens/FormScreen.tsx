@@ -61,6 +61,13 @@ export default class FormScreen extends React.Component<InterfaceProps, Interfac
 
   store: ContactsListStore = new ContactsListStore();
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
 

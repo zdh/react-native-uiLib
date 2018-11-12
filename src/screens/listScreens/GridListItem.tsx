@@ -10,6 +10,13 @@ export class ProductItem extends SelectableComponent<InterfaceProps, InterfaceSt
   renderSelectableIndicator: any;
   onSelect: any;
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(public props) {
     super(props);
   }
@@ -77,7 +84,15 @@ export class ProductItem extends SelectableComponent<InterfaceProps, InterfaceSt
 
 export const SimpleItem = () => {
   return (
-    <View style={{ height: 70, width: 100, backgroundColor: Colors.violet70, margin: 10, marginBottom: 0 }} />
+    <View
+      style={{
+        height: 70,
+        width: 100,
+        backgroundColor: Colors.violet70,
+        margin: 10,
+        marginBottom: 0,
+      }}
+    />
   );
 };
 SimpleItem.itemsPerRow = 3;

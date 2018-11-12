@@ -44,15 +44,24 @@ interface InterfaceStyle {
 }
 
 export default class ShadowsScreen extends React.Component<InterfaceProps, InterfaceState> {
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
   }
 
   private renderShadows = (shadowsList) => {
-    return []
-      // @ts-ignore
-      .concat(_.map(shadowsList, (value, key) => this.renderCircleWithShadow(value, key)))
-      .concat(_.map(shadowsList, (value, key) => this.renderSquareWithShadow(value, key)));
+    return (
+      []
+        // @ts-ignore
+        .concat(_.map(shadowsList, (value, key) => this.renderCircleWithShadow(value, key)))
+        .concat(_.map(shadowsList, (value, key) => this.renderSquareWithShadow(value, key)))
+    );
   };
 
   private renderCircleWithShadow = (shadow, name) => {

@@ -31,6 +31,13 @@ export default class ConversationListScreen extends React.Component<
   InterfaceProps,
   InterfaceState
 > {
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
 
@@ -103,7 +110,7 @@ export default class ConversationListScreen extends React.Component<
     return (
       <FlatList
         data={this.state.data}
-        renderItem={({item, index}) => this.renderRow(item, index)}
+        renderItem={({ item, index }) => this.renderRow(item, index)}
         keyExtractor={this.keyExtractor}
       />
     );

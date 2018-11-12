@@ -18,7 +18,6 @@ const plusIcon = require("../../assets/icons/plus.png");
 const labelButton = { label: "Animated" };
 const iconButton = { round: true, iconStyle: { tintColor: Colors.white } };
 
-
 interface InterfaceProps {}
 
 interface InterfaceState {
@@ -36,6 +35,13 @@ interface InterfaceStyle {
 
 export default class ButtonsScreen extends React.Component<InterfaceProps, InterfaceState> {
   [k: string]: any;
+
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
 
   constructor(props) {
     super(props);

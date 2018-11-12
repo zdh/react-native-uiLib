@@ -49,6 +49,13 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
   hugeText;
   noUnderline;
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
 

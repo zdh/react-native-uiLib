@@ -12,7 +12,17 @@ interface InterfaceState {
   }[];
 }
 
-export default class WheelPickerViewScreen extends React.PureComponent<InterfaceProps, InterfaceState> {
+export default class WheelPickerViewScreen extends React.PureComponent<
+  InterfaceProps,
+  InterfaceState
+> {
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
     this.state = {

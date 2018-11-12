@@ -12,6 +12,13 @@ interface InterfaceState {
 export default class TourScreen extends React.Component<InterfaceProps, InterfaceState> {
   private target;
 
+  static navigationOptions = ({ navigation }) => {
+    const { state } = navigation;
+    return {
+      title: `${state.params.title}`,
+    };
+  };
+
   constructor(props) {
     super(props);
     this.state = {
