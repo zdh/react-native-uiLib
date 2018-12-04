@@ -6,12 +6,12 @@ UiLib app base on [react-native-ui-lib](https://github.com/wix/react-native-ui-l
 
 ### Build with
 
-- [x] react 16.6.0
-- [x] react-native 0.57.4
-- [x] typescript 3.1.6
+- [x] react 16.6.3
+- [x] react-native 0.57.7
+- [x] typescript 3.2.1
 - [x] mobx 5.6.0
-- [x] react-navigation 2.18.2
-- [x] react-native-ui-lib 3.3.287
+- [x] react-navigation 2.18.3
+- [x] react-native-ui-lib 3.6.1
 - [ ] ts-jest 23.6.0
 
 ### Try it yourself
