@@ -17,9 +17,9 @@ import { animationNavigator } from "./animationScreens";
 import { exampleNavigator } from "./realExamples";
 import MainScreen from "./MainScreen";
 
-import { StackNavigator } from "react-navigation";
+import { createStackNavigator, createAppContainer } from "react-navigation";
 
-const AppNavigator = StackNavigator(
+const AppNavigator = createStackNavigator(
   _.assign(
     {
       "unicorn.MainScreen": {
@@ -43,4 +43,4 @@ const AppNavigator = StackNavigator(
   },
 );
 
-export default AppNavigator;
+export default createAppContainer(AppNavigator);

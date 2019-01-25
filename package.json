@@ -14,19 +14,20 @@
   "dependencies": {
     "lodash": "^4.17.11",
     "mobx": "^5.6.0",
-    "mobx-react": "^5.4.2",
+    "mobx-react": "^5.4.3",
     "react": "^16.6.3",
     "react-native": "^0.57.7",
     "react-native-blur": "^3.2.2",
+    "react-native-gesture-handler": "^1.0.14",
     "react-native-keyboard-tracking-view": "^5.5.0",
-    "react-native-ui-lib": "^3.6.1",
-    "react-navigation": "^2.18.3"
+    "react-native-ui-lib": "^3.15.5",
+    "react-navigation": "^3.0.9"
   },
   "devDependencies": {
     "@types/jest": "^23.3.13",
     "@types/lodash": "^4.14.120",
     "@types/react": "^16.7.20",
-    "@types/react-native": "^0.57.29",
+    "@types/react-native": "^0.57.32",
     "@types/react-navigation": "^3.0.1",
     "@types/react-test-renderer": "^16.0.3",
     "babel-jest": "23.6.0",
