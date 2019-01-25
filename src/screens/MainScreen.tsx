@@ -8,7 +8,7 @@ import {
   Typography,
   View,
   Text,
-  TextInput,
+  TextField,
   TouchableOpacity,
 } from "react-native-ui-lib/src";
 
@@ -122,7 +122,7 @@ export default class UiLibExplorerMenu extends React.Component<InterfaceProps, I
     return (
       <View flex>
         <View style={{ marginLeft: 20, marginTop: 20 }}>
-          <TextInput
+          <TextField
             style={styles.textInput}
             value={this.state.filterText}
             hideUnderline

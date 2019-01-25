@@ -5,7 +5,7 @@ import {
   View,
   Colors,
   Text,
-  TextInput,
+  TextField,
   TextArea,
   Typography,
   Modal,
@@ -92,23 +92,22 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
         <ScrollView
           contentContainerStyle={styles.container}
           keyboardShouldPersistTaps="always"
-          // @ts-ignore
           getTextInputRefs={() => [this.noUnderline, this.hugeText]}
         >
-          <Text style={{ marginBottom: 20, marginRight: 20 }} text40>
+          <Text style={{marginBottom: 20, marginRight: 20}} text40>
             Inputs
           </Text>
           <Button
-            style={{ height: 28, alignSelf: "flex-start", marginBottom: 20 }}
+            style={{height: 28, alignSelf: 'flex-start', marginBottom: 20}}
             outline={!topError}
             size="small"
             label={btnLabel}
             onPress={this.onButtonPressed}
           />
 
-          <TextInput
+          <TextField
             text70
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             floatingPlaceholder
             placeholder="floatingPlaceholder & error"
             onChangeText={this.onChangeText}
@@ -117,8 +116,8 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
             floatOnFocus
           />
 
-          <TextInput
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+          <TextField
+            containerStyle={{marginBottom: INPUT_SPACING}}
             floatingPlaceholder
             placeholder="placeholder"
             helperText="helperText"
@@ -130,9 +129,9 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
             disabledColor={Colors.dark70}
           />
 
-          <TextInput
+          <TextField
             text70
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             floatingPlaceholder
             placeholder="& helperText"
             helperText="this is an helper text"
@@ -141,18 +140,18 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
             useTopErrors={this.state.topError}
           />
 
-          <TextInput
+          <TextField
             text70
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             floatingPlaceholder
             placeholder="multiline & helperText"
             multiline
             helperText="this is an helper text"
           />
 
-          <TextInput
+          <TextField
             text70
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             title="title"
             placeholder="character counter & error"
             maxLength={3}
@@ -162,11 +161,11 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
             useTopErrors={this.state.topError}
           />
 
-          <TextInput
+          <TextField
             text70
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             title="Title"
-            titleStyle={{ fontSize: Typography.text70.fontSize }}
+            titleStyle={{fontSize: Typography.text70.fontSize}}
             placeholder="multiline & titleStyle"
             multiline
             maxLength={32}
@@ -177,9 +176,9 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
             autoCapitalize="words"
           />
 
-          <TextInput
+          <TextField
             text70
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             floatingPlaceholder
             placeholder="character counter & expandable"
             expandable
@@ -187,9 +186,9 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
             showCharacterCounter
           />
 
-          <TextInput
+          <TextField
             text70
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             floatingPlaceholder
             placeholderTextColor={Colors.cyan30}
             floatingPlaceholderColor={Colors.cyan30}
@@ -197,62 +196,62 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
             onChangeText={this.onChangeText}
             error={this.state.error}
             useTopErrors={this.state.topError}
-            underlineColor={{ focus: Colors.purple50, error: Colors.yellow60 }}
+            underlineColor={{focus: Colors.purple50, error: Colors.yellow60}}
           />
 
-          <TextInput
+          <TextField
             text70
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             floatingPlaceholder
             placeholder="multiline & numberOfLines = 3"
             multiline
             numberOfLines={3}
           />
 
-          <TextInput
+          <TextField
             text40
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             placeholder="write something.."
             hideUnderline
           />
 
-          <TextInput
+          <TextField
             text30
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             placeholder="write something.."
             centered
             hideUnderline
           />
 
-          <TextInput
+          <TextField
             text70
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             placeholder="Share your story"
             value={
               "Share Your Story exists to provide spaces to hear people's stories, in order to inspire us to" +
-              "live better ones ourselves."
+              'live better ones ourselves.'
             }
             multiline
           />
 
-          <TextInput
+          <TextField
             text70
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             floatingPlaceholder
             placeholder="Tell us about yourself"
             value={LONG_TEXT}
             expandable
           />
 
-          <TextInput
-            containerStyle={{ marginBottom: INPUT_SPACING }}
-            ref={(r) => (this.input = r)}
+          <TextField
+            containerStyle={{marginBottom: INPUT_SPACING}}
+            ref={r => (this.input = r)}
             placeholder="placeholder"
             expandable
             value={this.state.customExpandableValue}
             renderExpandable={() => {
               return (
-                <Modal visible animationType={"slide"}>
+                <Modal visible animationType={'slide'}>
                   <View flex bg-orange70 center>
                     <Text marginB-20 text50>
                       Do Whatever you want here
@@ -260,7 +259,7 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
                     <Button
                       label="Close Me"
                       onPress={() => {
-                        this.setState({ customExpandableValue: "New Value" }, () => {
+                        this.setState({customExpandableValue: 'New Value'}, () => {
                           this.input.toggleExpandableModal(false);
                         });
                       }}
@@ -271,18 +270,16 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
             }}
           />
 
-          <TextInput
+          <TextField
             text70
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             floatingPlaceholder
             placeholder="with price transformer"
             value={this.state.value}
             transformer={transformPrice}
           />
 
-          <Text dark10 marginB-5>
-            Text Area
-          </Text>
+          <Text dark10 marginB-5>Text Area</Text>
           <View
             style={{
               height: 150,
@@ -292,36 +289,36 @@ export default class InputsScreen extends React.Component<InterfaceProps, Interf
               borderColor: Colors.dark60,
             }}
           >
-            <TextArea placeholder="write something.." />
+            <TextArea placeholder="write something.."/>
           </View>
 
-          <TextInput
+          <TextField
             text50
             floatingPlaceholder
             placeholder="Big Title Text"
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             helperText="this is an helper text"
           />
-          <TextInput
+          <TextField
             text20
             placeholder="Huge Text"
-            containerStyle={{ marginBottom: INPUT_SPACING }}
-            ref={(input) => (this.hugeText = input)}
+            containerStyle={{marginBottom: INPUT_SPACING}}
+            ref={input => (this.hugeText = input)}
           />
 
-          <TextInput
+          <TextField
             text70
             placeholder="No Underline"
-            containerStyle={{ marginBottom: INPUT_SPACING }}
-            ref={(input) => (this.noUnderline = input)}
+            containerStyle={{marginBottom: INPUT_SPACING}}
+            ref={input => (this.noUnderline = input)}
             hideUnderline
           />
 
-          <TextInput
+          <TextField
             text10
             placeholder="Centered"
             centered
-            containerStyle={{ marginBottom: INPUT_SPACING }}
+            containerStyle={{marginBottom: INPUT_SPACING}}
             hideUnderline
           />
         </ScrollView>
