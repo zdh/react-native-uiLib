@@ -1,7 +1,7 @@
 import BasicListScreen from "./BasicListScreen";
 import ContactsListScreen from "./ContactsListScreen";
 import ConversationListScreen from "./ConversationListScreen";
-import GridListScreen from './GridListScreen';
+// import GridListScreen from './GridListScreen';
 
 export const listNavigator = {
   "unicorn.lists.BasicListScreen": {
@@ -13,7 +13,7 @@ export const listNavigator = {
   "unicorn.lists.ConversationListScreen": {
     screen: ConversationListScreen,
   },
-  'unicorn.lists.GridListScreen': {
-    screen: GridListScreen,
-  },
+  // 'unicorn.lists.GridListScreen': {
+  //   screen: GridListScreen,
+  // },
 };
