@@ -15,7 +15,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mobx": "^5.13.0",
     "mobx-react": "^5.4.3",
     "react": "^16.9.0",
